@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Propuesta Comercial — Plataforma de Arriendos</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a3552; --teal: #2a7090; --white: #ffffff;
+  --off: #f7f7f7; --text: #1a1a1a; --muted: #888888; --border: #e0e0e0;
+}
+
+body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); font-size: 14px; line-height: 1.7; }
+
+.top-bar { height: 4px; background: var(--navy); width: 100%; }
+
+.page { max-width: 820px; margin: 0 auto; padding: 40px 48px 60px; }
+
+.header { display: flex; justify-content: center; padding: 32px 0 24px; }
+.tagline { font-size: 13px; letter-spacing: .18em; color: var(--muted); text-transform: uppercase; text-align: center; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 0 0 32px; }
+
+.title-block { text-align: center; margin-bottom: 28px; }
+.main-title { font-size: 20px; font-weight: 700; letter-spacing: .15em; margin-bottom: 8px; }
+.ref-line { font-size: 12.5px; color: var(--muted); }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
+.info-card { background: var(--off); border-left: 3px solid var(--navy); padding: 12px 16px; }
+.info-card-wide { grid-column: 1 / -1; }
+.info-label { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.info-value { display: block; font-size: 15px; font-weight: 600; }
+
+.section { margin-bottom: 32px; }
+.section-title { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 8px; border-bottom: 2.5px solid var(--navy); margin-bottom: 14px; display: inline-block; }
+.section p { font-size: 14px; color: #333; line-height: 1.75; margin-bottom: 10px; }
+
+.item-header { background: var(--off); border-left: 3px solid var(--navy); padding: 14px 18px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.item-header .item-name { font-size: 16px; font-weight: 700; }
+.item-header .item-price { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); font-weight: 700; }
+.item-meta { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: .04em; }
+
+.deliverables-table { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 13.5px; }
+.deliverables-table thead tr { background: var(--navy); color: #fff; }
+.deliverables-table thead th { padding: 11px 14px; text-align: left; font-size: 11px; letter-spacing: .1em; font-weight: 600; }
+.deliverables-table thead th:first-child { width: 44px; }
+.deliverables-table tbody tr:nth-child(even) { background: #f9f9f9; }
+.deliverables-table tbody td { padding: 13px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: #333; line-height: 1.65; }
+.deliverables-table tbody td:first-child { color: var(--muted); font-size: 12px; }
+
+.tech-marquee {
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 8px 0 4px;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.tech-track {
+  display: flex; gap: 56px; width: max-content;
+  animation: scroll-tech 32s linear infinite;
+}
+.tech-item { display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; min-width: 90px; }
+.tech-item img { width: 38px; height: 38px; object-fit: contain; display: block; }
+.tech-item .tech-name { font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; text-align: center; white-space: nowrap; font-weight: 500; }
+@keyframes scroll-tech { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 28px)); } }
+.tech-marquee:hover .tech-track { animation-play-state: paused; }
+
+.timeline { display: grid; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+.timeline-col { padding: 16px 14px; border-right: 1px solid var(--border); }
+.timeline-col:last-child { border-right: none; }
+.week-label { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.week-desc { display: block; font-size: 12.5px; font-weight: 500; line-height: 1.5; }
+
+.investment-card { background: var(--navy); color: #fff; border-radius: 6px; padding: 28px 32px; margin-top: 4px; }
+.inv-row { display: flex; justify-content: space-between; font-size: 14px; padding: 6px 0; color: rgba(255,255,255,.85); }
+.inv-divider { border: none; border-top: 1px solid rgba(255,255,255,.25); margin: 10px 0; }
+.inv-dashed { border: none; border-top: 1px dashed rgba(255,255,255,.25); margin: 10px 0; }
+.inv-total { font-weight: 700; font-size: 17px; color: #fff; }
+.investment-card p.inv-note { font-size: 12px; color: #ffffff; margin-top: 12px; }
+.inv-section-label { display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 10px 0 4px; }
+
+.conditions { list-style: none; padding: 0; margin-top: 4px; }
+.conditions li { padding: 5px 0; font-size: 13.5px; color: #333; }
+.conditions li::before { content: '— '; }
+
+.closing-block { background: var(--off); border-left: 3px solid var(--navy); padding: 22px 28px; margin-top: 36px; border-radius: 0 4px 4px 0; }
+.closing-row { display: flex; justify-content: space-between; font-size: 14px; padding: 5px 0; color: #444; }
+.closing-row.grand { font-size: 17px; font-weight: 700; color: var(--navy); padding: 10px 0 4px; border-top: 1px solid var(--border); margin-top: 8px; }
+.closing-note { font-size: 12px; color: var(--muted); margin-top: 14px; line-height: 1.65; font-style: italic; }
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { page-break-inside: avoid; }
+  .investment-card, .closing-block { page-break-inside: avoid; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE MOBILE-FIRST — BLOQUE OBLIGATORIO
+   ════════════════════════════════════════════════════════════ */
+
+/* ---- MÓVIL (<= 719px) — reflow mobile-first ---- */
+@media (max-width: 719px) {
+  body { font-size: 15px; }
+
+  .page { padding: 28px 20px 44px; }
+
+  .header { padding: 24px 0 18px; }
+  .tagline { font-size: 11.5px; letter-spacing: .14em; }
+  .divider { margin: 0 0 24px; }
+
+  .title-block { margin-bottom: 22px; }
+  .main-title { font-size: 17px; letter-spacing: .12em; }
+  .ref-line { font-size: 12px; line-height: 1.5; }
+
+  .info-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 28px; }
+  .info-card { padding: 11px 14px; }
+  .info-value { font-size: 14.5px; }
+
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 12.5px; }
+  .section p { font-size: 14.5px; }
+
+  .item-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 13px 15px; }
+  .item-header .item-name { font-size: 15.5px; line-height: 1.35; }
+  .item-header .item-price { font-size: 11px; }
+  .item-meta { font-size: 11.5px; }
+
+  .deliverables-table { display: block; font-size: 14px; }
+  .deliverables-table thead { display: none; }
+  .deliverables-table tbody { display: block; }
+  .deliverables-table tbody tr {
+    display: block;
+    background: var(--off);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 5px 5px 0;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+  }
+  .deliverables-table tbody tr:nth-child(even) { background: var(--off); }
+  .deliverables-table tbody td { display: block; padding: 0; border-bottom: none; }
+
+  .deliverables-table tbody td:first-child {
+    display: inline; font-size: 13px; font-weight: 700; color: var(--navy);
+  }
+  .deliverables-table tbody td:first-child::after { content: ' · '; color: var(--muted); font-weight: 400; }
+
+  .deliverables-table tbody td:nth-child(2) {
+    display: inline; font-size: 15px; line-height: 1.4;
+  }
+  .deliverables-table tbody td:nth-child(2) strong { font-weight: 700; }
+
+  .deliverables-table tbody td:last-child {
+    display: block; margin-top: 7px; font-size: 13.5px; line-height: 1.6; color: #444;
+  }
+
+  .tech-marquee { margin-top: 8px; }
+  .tech-track { gap: 38px; animation-duration: 30s; }
+  .tech-item { min-width: 72px; }
+
+  .timeline { grid-template-columns: 1fr !important; }
+  .timeline-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .timeline-col:last-child { border-bottom: none; }
+
+  .investment-card { padding: 22px 18px; }
+  .inv-row { font-size: 13.5px; gap: 12px; flex-wrap: wrap; }
+  .inv-row span:last-child { font-weight: 600; white-space: nowrap; }
+  .inv-total { font-size: 16px; }
+  .inv-note { font-size: 11.5px; }
+
+  .conditions li { font-size: 13.5px; line-height: 1.55; }
+
+  .closing-block { padding: 18px 18px; margin-top: 28px; }
+  .closing-row { font-size: 13.5px; gap: 12px; }
+  .closing-row span:last-child { white-space: nowrap; }
+  .closing-row.grand { font-size: 16px; }
+  .closing-note { font-size: 11.5px; }
+}
+
+/* ---- TABLET (720px–959px) — timeline a 2 columnas ---- */
+@media (min-width: 720px) and (max-width: 959px) {
+  .timeline { grid-template-columns: 1fr 1fr !important; }
+  .timeline-col:nth-child(2n) { border-right: none; }
+}
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div class="page">
+
+  <div class="header">
+    <p class="tagline">Desarrollo Web &amp; Soluciones Digitales</p>
+  </div>
+  <hr class="divider">
+
+  <div class="title-block">
+    <h2 class="main-title">PROPUESTA COMERCIAL</h2>
+    <p class="ref-line">Ref. PROP-2026-ARR &nbsp;|&nbsp; 28 de agosto de 2026</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card info-card-wide">
+      <span class="info-label">Proyecto</span>
+      <span class="info-value">Plataforma de Arriendos con Sincronización de Canales</span>
+    </div>
+    <div class="info-card">
+      <span class="info-label">Plazo de entrega</span>
+      <span class="info-value">11 semanas · 3 fases</span>
+    </div>
+    <div class="info-card">
+      <span class="info-label">Fecha de emisión</span>
+      <span class="info-value">28 de agosto de 2026</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Resumen ejecutivo</h3>
+    <p>
+      El proyecto se divide en tres fases independientes. Cada una entrega un producto operativo por
+      sí mismo: al cerrar la fase 1 hay un sitio publicado; al cerrar la fase 2, un negocio que recibe
+      reservas y cobra en línea; al cerrar la fase 3, una plataforma donde otros propietarios abren su
+      cuenta y operan sus propias propiedades. Cada fase se aprueba, se entrega y se factura por separado.
+    </p>
+    <p>
+      La conexión con Airbnb y Booking.com se resuelve mediante un proveedor certificado por ambos
+      portales, integrado bajo la marca del cliente. El modelo de datos se construye desde la fase 2 con
+      separación por organización, de modo que la fase 3 amplía el sistema en lugar de reconstruirlo.
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="item-header">
+      <div>
+        <div class="item-name">Fase 1 · Sitio web y presencia digital</div>
+        <div class="item-meta">2 semanas · publicado y en producción al cierre</div>
+      </div>
+      <div class="item-price">CLP $750.000</div>
+    </div>
+    <table class="deliverables-table">
+      <thead><tr><th>#</th><th>Entregable</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><strong>Sistema de diseño</strong></td>
+          <td>Paleta, tipografía, espaciados y biblioteca de componentes sobre la que se construyen todas las pantallas del proyecto, incluidas las de las fases siguientes.</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><strong>Portada y buscador</strong></td>
+          <td>Propuesta de valor, buscador por fechas, ubicación y huéspedes, y selección destacada de propiedades.</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><strong>Fichas de propiedad</strong></td>
+          <td>Página por propiedad con galería, descripción, amenidades, políticas de estadía y ubicación en mapa.</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><strong>Páginas institucionales</strong></td>
+          <td>Quiénes somos, contacto, términos y condiciones, privacidad y política de cancelación.</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><strong>Contacto directo</strong></td>
+          <td>Botón de WhatsApp y correo visibles en todo el sitio, para recibir consultas desde el primer día.</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><strong>Adaptación a móvil</strong></td>
+          <td>Navegación, galerías, buscador y formularios rediseñados para uso táctil y validados en resoluciones reales.</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><strong>Publicación en producción</strong></td>
+          <td>Configuración de dominio, certificado de seguridad, analítica de visitas y despliegue automatizado.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="item-header">
+      <div>
+        <div class="item-name">Fase 2 · Reservas, Airbnb y cobros en línea</div>
+        <div class="item-meta">4 semanas · sobre las propiedades propias del cliente</div>
+      </div>
+      <div class="item-price">CLP $2.000.000</div>
+    </div>
+    <table class="deliverables-table">
+      <thead><tr><th>#</th><th>Entregable</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><strong>Motor de reservas</strong></td>
+          <td>Calendario de disponibilidad en tiempo real por unidad, tarifas por fecha, reglas de estadía mínima y máxima, y bloqueos manuales por mantención o uso propio.</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><strong>Conexión con Airbnb</strong></td>
+          <td>Se vincula la cuenta de Airbnb del cliente mediante el proveedor certificado, se mapean sus publicaciones a las unidades del sistema y queda establecido el envío de tarifas y disponibilidad junto con la recepción automática de las reservas de ese canal.</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><strong>Control de sobreventa</strong></td>
+          <td>Cada reserva se registra dentro de una transacción atómica sobre las fechas comprometidas, con verificación de duplicados que descarta los avisos repetidos del canal. Un proceso periódico contrasta la disponibilidad propia con la del canal y alerta ante cualquier divergencia.</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><strong>Pasarela de pago</strong></td>
+          <td>Mercado Pago con cotización en tiempo real, reserva temporal de las fechas durante el checkout, pago sin obligación de crear cuenta y confirmación automática al acreditarse. Si el pago no se completa, las fechas se liberan.</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><strong>Panel de gestión</strong></td>
+          <td>Reservas con indicador de origen, ficha de cada una con datos del huésped y estado de pago, y edición masiva de tarifas y disponibilidad por rango de fechas.</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><strong>Avisos automáticos</strong></td>
+          <td>Aviso por WhatsApp y correo al ingresar una reserva por cualquier canal, confirmación al huésped, recordatorio previo al check-in y alerta ante fallas de sincronización.</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><strong>Formulario de consultas</strong></td>
+          <td>Recepción de solicitudes con validación de datos, aviso al operador y respuesta automática al interesado.</td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><strong>Posicionamiento técnico</strong></td>
+          <td>Títulos y descripciones por página, datos estructurados de alojamiento, imágenes de previsualización para redes, mapa del sitio y archivo de indexación. Las fichas de propiedad se generan como páginas indexables por buscadores.</td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><strong>Arquitectura preparada para múltiples cuentas</strong></td>
+          <td>El modelo de datos se construye con separación por organización y con la estructura de propiedad, unidad y plan tarifario que exige el proveedor de conectividad. La fase 3 se apoya sobre esta base en lugar de reemplazarla.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="item-header">
+      <div>
+        <div class="item-name">Fase 3 · Plataforma para múltiples propietarios</div>
+        <div class="item-meta">5 semanas · modelo de suscripción y comisión</div>
+      </div>
+      <div class="item-price">CLP $3.000.000</div>
+    </div>
+    <table class="deliverables-table">
+      <thead><tr><th>#</th><th>Entregable</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><strong>Cuentas de propietario</strong></td>
+          <td>Registro autoservicio con correo o cuenta de Google, perfiles de propietario y colaborador, y recuperación de acceso.</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><strong>Aislamiento de datos</strong></td>
+          <td>Cada cuenta accede solo a su propia información mediante reglas de seguridad evaluadas por la base de datos, no por la aplicación. Ninguna consulta puede cruzar entre cuentas.</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><strong>Alta guiada</strong></td>
+          <td>Asistente de cinco pasos —cuenta, plan, primera propiedad, medio de cobro y canales— con avance guardado para interrumpir y retomar.</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><strong>Carga de propiedades</strong></td>
+          <td>Cada propietario publica sus propias propiedades y unidades: fotos con orden y portada, amenidades, políticas, reglas de estadía y calendario de tarifas.</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><strong>Conexión de canales por cuenta</strong></td>
+          <td>Airbnb con autorización directa del propietario y Booking.com mediante asistente ilustrado con capturas del panel real y video explicativo, más el mapeo de habitaciones y planes tarifarios. Incluye detección de cuentas que ya operan con otro gestor de canales y su guía de migración.</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><strong>Reparto automático de pagos</strong></td>
+          <td>Cada propietario vincula su cuenta de Mercado Pago y recibe los pagos directamente; la comisión de la plataforma se descuenta en la misma transacción, con desglose visible y reembolsos repartidos en igual proporción.</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><strong>Suscripciones</strong></td>
+          <td>Planes por número de unidades, cobro mensual recurrente, recordatorios de pago y suspensión de publicación ante morosidad, conservando activas las conexiones de canal para no comprometer reservas ya tomadas.</td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><strong>Panel del operador</strong></td>
+          <td>Propietarios con estado de suscripción y unidades activas, salud de las conexiones, volumen transaccionado y comisión acumulada, cola de errores y acceso de soporte a una cuenta.</td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><strong>Certificación del proveedor</strong></td>
+          <td>Revisión técnica del uso de la integración y sesión de validación en vivo con el equipo del proveedor, requisito para operar en producción con múltiples cuentas conectadas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Stack Tecnológico</h3>
+    <div class="tech-marquee">
+      <div class="tech-track">
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js"><span class="tech-name">Next.js</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript"><span class="tech-name">TypeScript</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/firebase/DD2C00" alt="Firebase"><span class="tech-name">Firebase</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Firestore"><span class="tech-name">Firestore</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind"><span class="tech-name">Tailwind</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/airbnb/FF5A5F" alt="Airbnb"><span class="tech-name">Airbnb</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/bookingdotcom/003580" alt="Booking.com"><span class="tech-name">Booking.com</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/mercadopago/00B1EA" alt="Mercado Pago"><span class="tech-name">Mercado Pago</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/resend/000000" alt="Resend"><span class="tech-name">Resend</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n"><span class="tech-name">n8n</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel"><span class="tech-name">Vercel</span></div>
+
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/nextdotjs/000000" alt=""><span class="tech-name">Next.js</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt=""><span class="tech-name">TypeScript</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/firebase/DD2C00" alt=""><span class="tech-name">Firebase</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt=""><span class="tech-name">Firestore</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt=""><span class="tech-name">Tailwind</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/airbnb/FF5A5F" alt=""><span class="tech-name">Airbnb</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/bookingdotcom/003580" alt=""><span class="tech-name">Booking.com</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/mercadopago/00B1EA" alt=""><span class="tech-name">Mercado Pago</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/resend/000000" alt=""><span class="tech-name">Resend</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt=""><span class="tech-name">n8n</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/vercel/000000" alt=""><span class="tech-name">Vercel</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Cronograma</h3>
+    <div class="timeline" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="timeline-col">
+        <span class="week-label">Semanas 1 a 2 · Fase 1</span>
+        <span class="week-desc">Sistema de diseño, portada y buscador, fichas de propiedad, páginas institucionales, adaptación a móvil y publicación en producción.</span>
+      </div>
+      <div class="timeline-col">
+        <span class="week-label">Semanas 3 a 6 · Fase 2</span>
+        <span class="week-desc">Motor de reservas, conexión con Airbnb, control de sobreventa, pasarela de pago, panel de gestión, avisos y posicionamiento técnico.</span>
+      </div>
+      <div class="timeline-col">
+        <span class="week-label">Semanas 7 a 11 · Fase 3</span>
+        <span class="week-desc">Cuentas de propietario, alta guiada, conexión de canales por cuenta, reparto de pagos, suscripciones, panel del operador y certificación.</span>
+      </div>
+    </div>
+    <p style="margin-top: 10px; font-size: 12px; color: var(--muted);">
+      Este plazo refleja una priorización deliberada del proyecto sobre otros desarrollos en curso para acelerar la puesta en producción.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Qué incluye el monto</h3>
+    <p><strong>1 · Diseño y desarrollo del producto</strong> — sistema visual propio, sitio público indexable, aplicación de gestión y panel de operación, sobre una única base de código y un solo modelo de datos.</p>
+    <p><strong>2 · Conectividad con los portales</strong> — integración con el proveedor certificado por Airbnb y Booking.com, mapeo de publicaciones, envío de tarifas y disponibilidad, recepción automática de reservas y certificación técnica para producción.</p>
+    <p><strong>3 · Cobros y reparto de dinero</strong> — pasarela de pago, reparto automático entre el propietario y la plataforma, cobro recurrente de suscripciones y tratamiento proporcional de los reembolsos.</p>
+    <p><strong>4 · Estabilización de dos meses</strong> tras la entrega de la fase 2, sin costo adicional y con revisiones ilimitadas.</p>
+    <p>A partir del tercer mes posterior a la fase 2, la mantención mensual se establece en <strong>CLP $250.000</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Inversión</h3>
+    <div class="investment-card">
+      <span class="inv-section-label">Desarrollo por fases</span>
+      <div class="inv-row"><span>Fase 1 · Sitio web y presencia digital</span><span>CLP $750.000</span></div>
+      <div class="inv-row"><span>Fase 2 · Reservas, Airbnb y cobros en línea</span><span>CLP $2.000.000</span></div>
+      <div class="inv-row"><span>Fase 3 · Plataforma para múltiples propietarios</span><span>CLP $3.000.000</span></div>
+      <div class="inv-row"><span>Mantención primeros dos meses tras la fase 2</span><span>incluido</span></div>
+      <div class="inv-row"><span>Revisiones y ajustes durante esos meses</span><span>sin límite</span></div>
+      <hr class="inv-divider">
+      <div class="inv-row inv-total"><span>Total del proyecto completo</span><span>CLP $5.750.000</span></div>
+      <hr class="inv-dashed">
+      <span class="inv-section-label">Desde el tercer mes posterior a la fase 2</span>
+      <div class="inv-row"><span>Mantención mensual</span><span>CLP $250.000 / mes</span></div>
+      <p class="inv-note">
+        Cubre el monitoreo de la sincronización con Airbnb y Booking.com, la adecuación del sistema
+        ante cambios que esos portales introduzcan en sus integraciones, los ajustes de interfaz y
+        contenido, y la atención de incidencias operativas.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Condiciones Generales</h3>
+    <ul class="conditions">
+      <li>Forma de pago: 100% contra entrega de cada fase a producción.</li>
+      <li>Moneda CLP. Transferencia bancaria nacional.</li>
+      <li>Cada fase se aprueba, entrega y factura de forma independiente, y deja un producto operativo al cierre.</li>
+      <li>Los servicios de terceros que el sistema utiliza —conectividad con los portales, alojamiento, base de datos, envío de correos y mensajería— se contratan a nombre del cliente. Su costo conjunto se sitúa en torno a CLP $230.000 mensuales y comienza a devengarse durante la fase 2, al activarse la conexión con Airbnb.</li>
+      <li>El calendario de la fase 3 contempla la agenda de certificación del proveedor de conectividad y los tiempos de aprobación de Booking.com, ambos determinados por dichas contrapartes.</li>
+      <li>Modificaciones de scope fuera de los entregables listados se cotizan por separado.</li>
+    </ul>
+  </div>
+
+  <div class="closing-block">
+    <div class="closing-row"><span>Fase 1 · Sitio web y presencia digital</span><span>CLP $750.000</span></div>
+    <div class="closing-row"><span>Fase 2 · Reservas, Airbnb y cobros en línea</span><span>CLP $2.000.000</span></div>
+    <div class="closing-row"><span>Fase 3 · Plataforma para múltiples propietarios</span><span>CLP $3.000.000</span></div>
+    <div class="closing-row"><span>Total del proyecto completo</span><span>CLP $5.750.000</span></div>
+    <div class="closing-row"><span>+ IVA (19%)</span><span>CLP $1.092.500</span></div>
+    <div class="closing-row grand"><span>Total con factura</span><span>CLP $6.842.500</span></div>
+    <p class="closing-note">
+      El IVA aplica únicamente cuando el cliente requiere emisión de factura. Si se opta por recibir
+      boleta, el monto final corresponde al valor base de <strong>CLP $5.750.000</strong> sin IVA.
+      Cada fase puede contratarse y facturarse de forma independiente por su valor individual.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
